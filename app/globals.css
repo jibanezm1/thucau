@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #173f2d;
+  --institutional: #2f5d46;
+  --leaf: #5f8f6b;
+  --pastel: #a9d8bc;
+  --mint: #cfebdc;
+  --natural: #f6faf7;
+  --sand: #e7d8be;
+  --cream: #f3ebd8;
+  --text: #33443a;
+  --muted: #738278;
+  --line: rgba(47, 93, 70, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    linear-gradient(120deg, rgba(207, 235, 220, 0.45), transparent 34%),
+    var(--natural);
+  font-family: var(--font-manrope), Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--institutional);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: var(--forest);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.04;
+  font-weight: 800;
+}
+
+.section-copy {
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.soft-panel {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(23, 63, 45, 0.08);
+}
+
+.icon-tile {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(95, 143, 107, 0.24);
+  border-radius: 8px;
+  color: var(--forest);
+  background: var(--mint);
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.button-primary {
+  color: white;
+  background: var(--forest);
+  border: 1px solid var(--forest);
+}
+
+.button-secondary {
+  color: var(--forest);
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+  transform: translateY(-1px);
+}
+
+.leaf-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.leaf-pattern::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -70px auto;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(95, 143, 107, 0.18);
+  transform: rotate(36deg);
+  clip-path: polygon(50% 0, 82% 20%, 100% 52%, 76% 86%, 38% 100%, 8% 68%, 0 32%);
+  pointer-events: none;
+}
