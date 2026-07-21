@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <Image alt="THUCAU" className="h-auto w-[142px]" height={320} src="/logo.png" width={779} />
           <p className="mt-4 max-w-md text-sm leading-7 text-[color:var(--muted)]">
-            THUCAU · Proyectos con impacto real en conservación, educación y tecnología aplicada.
+            THUCAU · Software y soluciones digitales con impacto real.
           </p>
         </div>
         <div>

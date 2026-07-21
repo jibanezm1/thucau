@@ -1,5 +1,6 @@
 import { BadgeCheck, Lightbulb, UsersRound } from "lucide-react";
 import { PageHero } from "../components/PageHero";
+import { Reveal } from "../components/Reveal";
 
 const founders = [
   {
@@ -32,39 +33,43 @@ export default function QuienesSomosPage() {
       />
       <section className="page-shell py-16 md:py-24">
         <div className="grid gap-8 md:grid-cols-2">
-          {founders.map((founder) => (
-            <article className="soft-panel p-6 md:p-8" key={founder.name}>
-              <span className="icon-tile">
-                <UsersRound size={22} />
-              </span>
-              <h2 className="mt-5 text-2xl font-extrabold text-[color:var(--forest)]">{founder.name}</h2>
-              <p className="mt-2 font-bold text-[color:var(--institutional)]">{founder.role}</p>
-              <p className="mt-5 leading-8 text-[color:var(--muted)]">{founder.text}</p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {founder.strengths.map((strength) => (
-                  <span className="rounded-[8px] bg-[color:var(--mint)] px-3 py-2 text-sm font-extrabold text-[color:var(--forest)]" key={strength}>
-                    {strength}
-                  </span>
-                ))}
-              </div>
-            </article>
+          {founders.map((founder, index) => (
+            <Reveal delay={index * 90} key={founder.name}>
+              <article className="soft-panel h-full p-6 transition-transform duration-300 hover:-translate-y-1 md:p-8">
+                <span className="icon-tile">
+                  <UsersRound size={22} />
+                </span>
+                <h2 className="mt-5 text-2xl font-extrabold text-[color:var(--forest)]">{founder.name}</h2>
+                <p className="mt-2 font-bold text-[color:var(--institutional)]">{founder.role}</p>
+                <p className="mt-5 leading-8 text-[color:var(--muted)]">{founder.text}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {founder.strengths.map((strength) => (
+                    <span className="rounded-[8px] bg-[color:var(--forest)] px-3 py-2 text-sm font-extrabold text-white" key={strength}>
+                      {strength}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
       <section className="bg-white py-16 md:py-24">
         <div className="page-shell grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <Reveal>
             <p className="eyebrow">Diferenciadores</p>
-            <h2 className="mt-3 text-4xl font-extrabold leading-tight text-[color:var(--forest)]">
+            <h2 className="mt-3 font-[family-name:var(--font-bebas)] text-5xl font-normal leading-[1.05] tracking-wide text-[color:var(--forest)]">
               Diseñamos soluciones sostenibles, no solo entregables.
             </h2>
-          </div>
+          </Reveal>
           <div className="grid gap-4">
             {values.map((value, index) => (
-              <article className="flex gap-4 rounded-[8px] border border-[color:var(--line)] bg-[color:var(--natural)] p-5" key={value}>
-                <span className="icon-tile shrink-0">{index === 1 ? <Lightbulb size={22} /> : <BadgeCheck size={22} />}</span>
-                <p className="text-lg font-bold leading-7 text-[color:var(--forest)]">{value}</p>
-              </article>
+              <Reveal delay={index * 80} key={value}>
+                <article className="flex gap-4 rounded-[8px] border border-[color:var(--line)] bg-[color:var(--natural)] p-5 transition-transform duration-300 hover:-translate-y-1">
+                  <span className="icon-tile shrink-0">{index === 1 ? <Lightbulb size={22} /> : <BadgeCheck size={22} />}</span>
+                  <p className="text-lg font-bold leading-7 text-[color:var(--forest)]">{value}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>

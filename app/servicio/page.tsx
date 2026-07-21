@@ -1,5 +1,6 @@
-import { BarChart3, BookOpenCheck, Braces, ClipboardCheck, Cpu, Sprout } from "lucide-react";
+import { BarChart3, Bot, BookOpenCheck, Braces, ClipboardCheck, Cpu } from "lucide-react";
 import { PageHero } from "../components/PageHero";
+import { Reveal } from "../components/Reveal";
 
 const services = [
   {
@@ -28,9 +29,9 @@ const services = [
     text: "Creamos plataformas, contenidos digitales, herramientas de evaluación y experiencias interactivas de aprendizaje.",
   },
   {
-    icon: Sprout,
-    title: "Conservación y proyectos con impacto",
-    text: "Diseñamos sistemas para datos en terreno, indicadores, visualización territorial y apoyo a decisiones ambientales.",
+    icon: Bot,
+    title: "Contactabilidad y agentes IA",
+    text: "Construimos flujos de atención y ventas con agentes de WhatsApp e IA, integrados a tus sistemas y con seguimiento en tiempo real.",
   },
 ];
 
@@ -46,29 +47,33 @@ export default function ServicioPage() {
       />
       <section className="page-shell py-16 md:py-24">
         <div className="grid gap-5 md:grid-cols-3">
-          {services.map((service) => (
-            <article className="soft-panel p-6" key={service.title}>
-              <span className="icon-tile">
-                <service.icon size={22} />
-              </span>
-              <h2 className="mt-5 text-xl font-extrabold text-[color:var(--forest)]">{service.title}</h2>
-              <p className="mt-3 leading-7 text-[color:var(--muted)]">{service.text}</p>
-            </article>
+          {services.map((service, index) => (
+            <Reveal delay={index * 70} key={service.title}>
+              <article className="soft-panel h-full p-6 transition-transform duration-300 hover:-translate-y-1">
+                <span className="icon-tile">
+                  <service.icon size={22} />
+                </span>
+                <h2 className="mt-5 text-xl font-extrabold text-[color:var(--forest)]">{service.title}</h2>
+                <p className="mt-3 leading-7 text-[color:var(--muted)]">{service.text}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
       <section className="bg-white py-16 md:py-24">
         <div className="page-shell">
           <p className="eyebrow">Forma de trabajo</p>
-          <h2 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--forest)]">
+          <h2 className="mt-3 max-w-3xl font-[family-name:var(--font-bebas)] text-5xl font-normal leading-[1.05] tracking-wide text-[color:var(--forest)]">
             Un proceso claro, iterativo y orientado a resultados.
           </h2>
           <div className="mt-10 grid gap-3 md:grid-cols-6">
             {steps.map((step, index) => (
-              <article className="rounded-[8px] border border-[color:var(--line)] bg-[color:var(--natural)] p-4" key={step}>
-                <p className="text-sm font-extrabold text-[color:var(--leaf)]">0{index + 1}</p>
-                <h3 className="mt-2 min-h-[48px] font-extrabold text-[color:var(--forest)]">{step}</h3>
-              </article>
+              <Reveal delay={index * 60} key={step}>
+                <article className="rounded-[8px] border border-[color:var(--line)] bg-[color:var(--natural)] p-4 transition-transform duration-300 hover:-translate-y-1">
+                  <p className="text-sm font-extrabold text-[color:var(--leaf)]">0{index + 1}</p>
+                  <h3 className="mt-2 min-h-[48px] font-extrabold text-[color:var(--forest)]">{step}</h3>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
