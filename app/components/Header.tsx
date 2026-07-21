@@ -16,6 +16,15 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoCentered, setLogoCentered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsMobile(mql.matches);
+    onChange();
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,13 +34,13 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (!scrolled) {
+    if (!scrolled || !isMobile) {
       setLogoCentered(false);
       return;
     }
     const timeout = setTimeout(() => setLogoCentered(true), 1000);
     return () => clearTimeout(timeout);
-  }, [scrolled]);
+  }, [scrolled, isMobile]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
