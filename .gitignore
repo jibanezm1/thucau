@@ -1,7 +1,7 @@
 .next/
 node_modules/
 out/
-
+.agents/
 .env*
 !.env.example
 

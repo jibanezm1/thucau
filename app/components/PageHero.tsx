@@ -1,16 +1,14 @@
 type PageHeroProps = {
-  eyebrow: string;
   title: string;
   copy: string;
 };
 
-export function PageHero({ eyebrow, title, copy }: PageHeroProps) {
+export function PageHero({ title, copy }: PageHeroProps) {
   return (
-    <section className="border-b border-[color:var(--line)] bg-white">
-      <div className="page-shell py-16 md:py-24">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1 className="section-title mt-4 max-w-4xl">{title}</h1>
-        <p className="section-copy mt-6 max-w-3xl">{copy}</p>
+    <section className="border-b border-[color:var(--color-rule)] bg-[color:var(--color-paper-2)]">
+      <div className="page-shell head-hang">
+        <h1 className="head-hang__title max-w-3xl">{title}</h1>
+        <p className="head-hang__lede">{copy}</p>
       </div>
     </section>
   );
